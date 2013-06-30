@@ -15,15 +15,15 @@
                       
         $('#form1').validate({
             rules:{
-                r0nombre:{
-                    required:true
-                },
-                r0email:{
-                    email:true
-                },
-                r0telefono1:{
-                    digits:true
-                },
+//                r0nombre:{
+//                    required:true
+//                },
+//                r0email:{
+//                    email:true
+//                },
+//                r0telefono1:{
+//                    digits:true
+//                },
                 r0user:{
                     required:true,
                     not_blank_between:true
@@ -77,14 +77,14 @@
 <form id="form1" method="post">
 
     <div data-role="fieldcontain">
-        <label style="font-weight:bold" for="r0nombre">Nombre</label>
+<!--        <label style="font-weight:bold" for="r0nombre">Nombre</label>
         <input type="text" id="r0nombre" name="r0nombre" value="<?= $datos->getField("nombre") ?>"/>
 
         <label style="font-weight:bold" for="r0email">Email</label>
         <input type="email" id="r0email" name="r0email" value="<?= $datos->getField("email") ?>">
 
         <label style="font-weight:bold" for="r0telefono1">Telefono</label>
-        <input type="text" id="r0telefono1" name="r0telefono1" value="<?= $datos->getField("telefono1") ?>">
+        <input type="text" id="r0telefono1" name="r0telefono1" value="<?= $datos->getField("telefono1") ?>">-->
 
         <label style="font-weight:bold" for="r0user">Usuario</label>
         <input type="text" data-mini="true" id="r0user" name="r0user" value="<?= $datos->getField("user") ?>"/>

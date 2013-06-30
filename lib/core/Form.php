@@ -8,7 +8,7 @@
  * To change this template use File | Settings | File Templates.
  */
 class Form {
-    /*
+    /**
      * metodo que lee variables pasadas por metodo get o post
      */
 
@@ -40,7 +40,7 @@ class Form {
 /////fin del metodo getvar
 
 
-    /*
+    /**
      * metodo que crea un combo box a partir de un query en base de datos
      * parametros: id del objeto,query o objetoDB,valor select, id select, label seleccionar, valor seleccionado
      */
@@ -83,7 +83,7 @@ class Form {
         return $combo;
     }
 
-    /*
+    /**
      * crea un combo a partir de una consulta de dos campos para mostrarlo con jquery Mobile
      */
 
@@ -125,8 +125,62 @@ class Form {
 
         return $combo;
     }
+    
+    
+    
+    
+     /**
+     * crea un combo a partir de una consulta de dos campos para mostrarlo con jquery Mobile
+     */
 
-    /*
+    public function dbComboMobileStyle($id, $query, $option, $value, $select = false, $default = false, $onchange=false, $deshabilita = false) {
+
+        if (is_string($query)) {
+            $db = new ObjectDB(); ///crea el objeto de conexion a base de datos
+            $db->simpleQuery($query);
+        } else {
+            $db = $query; ///en caso de que pase el objetodb
+        }
+
+        $combo = '<select name="' . $id . '" id="' . $id . '"';
+        ///estilo mobile
+       if($onchange)$combo.=' onChange="'.$onchange.'"';
+       if ($deshabilita) $combo.=' disabled="disabled"';
+        $combo.= ' data-native-menu="false" data-mini="true" class="select-with-images">';
+        if ($select)
+            $combo.= '<option value="">' . $select . '</option>';
+
+        while ($row = $db->getRegName()) {
+            $combo.= '<option value="';
+            $combo.= stripslashes($row["$value"]);
+            $combo.= '"';
+            
+            /////imagen que viene en el query
+            $combo.= 'icon="';
+            $combo.= 'verde';
+            $combo.= '"';
+            
+            if ($default == $row["$value"])
+                $combo.= ' selected';
+            $combo.= '>';
+            $combo.= $row["$option"];
+            $combo.= '</option>';
+        }
+
+        $combo.= '</select>';
+
+        $db->freeResult();
+
+
+        if (is_string($query)) ///para desconectar
+            $db->close();
+
+        return $combo;
+    }
+    
+    
+
+    /**
      * crea un combo estilo mobile a partir de dos vectores, $option y $value
      */
 

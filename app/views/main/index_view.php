@@ -5,8 +5,8 @@
 <div style="alignment-adjust: middle">
 
      <div class="icono" onclick="javascript:window.location='<?= Front::myUrl('micuenta/index') ?>'" >
-        <img src="<?= Front::myUrl('images/icons/micuenta.png') ?>"/>
-        <div>Mis datos</div>
+        <img src="<?= Front::myUrl('images/icons/pass.png') ?>"/>
+        <div>Cambiar clave</div>
     </div>
     
     <?php while ($row = $modulos->getRowFields()) { ?>

@@ -1,6 +1,6 @@
 <?php
 
-function _index() {
+function _vender() {
 
     Security::hasPermissionTo(4); //id del modulo de ventas
 
@@ -14,7 +14,7 @@ function _index() {
     $db->setTable("tbl_cliente");
     $db->getTableAllRecords("id,nombre", "activo = 1 and dia_id = $day and vendedor = $vendedor");
     $default = Security::getSessionVar("PEDIDO_CLIENTEID");
-    $cliente = $form->dbComboMobile("cliente_id", $db, "nombre", "id", 'Seleccionar', $default);
+    $cliente = $form->dbComboMobileStyle("cliente_id", $db, "nombre", "id", 'Seleccionar', $default);
 
 
     ////combo de grupo de producto
@@ -28,6 +28,6 @@ function _index() {
 
     $data["backButton"] = 1;
     $data['siteTitle'] = 'Módulo de Ventas';
-    $data['body'][] = View::do_fetch(VIEW_PATH . 'ventas/index.php', $param);
+    $data['body'][] = View::do_fetch(VIEW_PATH . 'ventas/vender.php', $param);
     View::do_dump(LAYOUT_PATH . 'layoutMobile.php', $data);
 }
