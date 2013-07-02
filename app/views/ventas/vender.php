@@ -306,47 +306,32 @@ Items de la Orden
 
 <!--    para añadir productos    -->
 
-<div id="agregarP" data-role="collapsible" data-content-theme="c">
-    <h3>Agregar Producto</h3>
+<h3>Agregar Productos</h3>
 
-    <form id="form2" data-transition="slide"  method="post"> 
-
-        <div data-role="fieldcontain">
-
-            <label style="font-weight:bold" class="select">Grupo</label>
-            <div>
-                <?= $grupop ?>
-            </div>
-
-            <label style="font-weight:bold" for="producto" class="select">Producto</label>
-            <div id="listaproductos">
-                <div id="producto">Seleccione el grupo de producto</div> 
-
-            </div>
-            <div>
-
-                <div id="cantidadprod">
-
-                    <div id="cantstock">
-                        &nbsp;
-                    </div>
-
-                    <label style="font-weight:bold" class="select">Cantidad (Bultos)</label>
-                    <div><input type="number" id="cantidad" name="cantidad"></div>
-                </div>
-
-                <div id="botones" style="display: none">  
-                    <button data-role="submit" data-theme="a" id="add" name="add" value="submit-value" data-inline="true">Añadir al pedido</button>
-                    <button data-role="borrar" data-theme="a" id="borrar" name="borrar" value="submit-value" data-inline="true">Eliminar del pedido</button>    
-                </div>
-            </div>
-
-        </div>  
-
-    </form> 
+<form id="form2" data-transition="slide"  method="post"> 
 
 
-</div>
+        <label for="categoriap" style="font-weight:bold" class="select">Grupo</label>
+        <div>
+            <?= $grupop ?>
+        </div>
+
+
+        <!--    lista de productos    -->  
+
+        <div class="ui-grid-c ui-responsive">
+            <div class="ui-block-a"><div class="ui-body ui-body-d" style="width:60%">nombre de un producto aqui</div></div>
+            <div class="ui-block-b"><div class="ui-body ui-body-d">B</div></div>
+            <div class="ui-block-c"><div class="ui-body ui-body-d">C</div></div>
+        </div>
+        <!--    lista de productos    -->  
+
+
+
+</form> 
+
+
+
 
 
 <div>
