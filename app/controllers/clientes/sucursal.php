@@ -33,13 +33,17 @@ function _sucursal($ope = false, $id = false) {
     /*
      * para los combos
      */
-    $db = new ObjectDB(Security::getSessionVar("DATASOURCE"));
     $form = new Form();
-
     ////combo de vendedores
-    $db->setTable("tbl_usuario");
-    $db->getTableAllRecords("id,nombre", "perfil_id = 3"); //perfil vendedor
-    $vendedor = $form->dbComboMobile("vendedor", $db, "nombre", "id", false, $dvende);
+
+    $db2 = new ObjectDB();
+    $db2->setTable("tbl_usuario");
+    $db2->getTableAllRecords("id,nombre", "perfil_id = 3"); //perfil vendedor
+    $vendedor = $form->dbComboMobile("vendedor", $db2, "nombre", "id", false, $dvende);
+
+    /////////
+
+    $db = new ObjectDB(Security::getSessionVar("DATASOURCE"));
 
     ////combo de zonas
     $db->setTable("tbl_zona");
